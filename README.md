@@ -1,24 +1,14 @@
+[![Build Status](https://travis-ci.com/stuartpet/best_before.svg?branch=master)](https://travis-ci.com/stuartpet/best_before)
+
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An app that will track a shopping list and let you know when you need to re-buy items
 
-Things you may want to cover:
+[Requirements](#requirements)
 
-* Ruby version
+## Requirements
 
-* System dependencies
+build a shopping list that will track items and inform the user when they need to buy items
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Author
+Stuart Pethurst
