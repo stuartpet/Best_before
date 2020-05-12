@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/smartpension/rubocop-smart.git
+  revision: f82613e655923699cf82d76e25e320cd078bd02f
+  tag: v1.0.1
+  specs:
+    rubocop-smart (1.0.1)
+      rubocop
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -177,6 +185,14 @@ GEM
       rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-rails (2.5.2)
+      activesupport
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
+    rubocop-rspec (1.39.0)
+      rubocop (>= 0.68.1)
+    rubocop-thread_safety (0.3.4)
+      rubocop (>= 0.51.0)
     ruby-progressbar (1.10.1)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -251,6 +267,10 @@ DEPENDENCIES
   rails (~> 6.0.3)
   rspec-rails (~> 4.0.0)
   rubocop
+  rubocop-rails
+  rubocop-rspec
+  rubocop-smart!
+  rubocop-thread_safety
   sass-rails (>= 6)
   selenium-webdriver
   simplecov

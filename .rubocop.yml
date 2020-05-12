@@ -1,0 +1,208 @@
+inherit_from: .rubocop_todo.yml
+inherit_mode:
+  merge:
+    - Exclude
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-thread_safety
+  - rubocop-smart
+AllCops:
+  TargetRubyVersion: 2.6.0
+  Exclude:
+    - "**/scripts/**/**/**/*"
+    - "vendor/**/*"
+    - "**/tmp/**/*"
+    - "**/db/**/*"
+    - "**/bin/**/*"
+    - "**/node_modules/**/*"
+    - "guides/**/*"
+    - "config/initializers/simple_form.rb"
+  DisplayCopNames: true
+  StyleGuideCopsOnly: false
+
+Style/Encoding:
+  Enabled: false
+Style/LambdaCall:
+  Enabled: false
+Style/Documentation:
+  Description: Document classes and non-namespace modules.
+  Enabled: false
+Lint/UselessAccessModifier:
+  ContextCreatingMethods:
+    - class_methods
+Layout/LineLength:
+  Description: Limit lines to 120 characters.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#80-character-limits
+  Enabled: true
+  Max: 120
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+Layout/EmptyLinesAroundClassBody:
+  Description: Keeps track of empty lines around class bodies.
+  Enabled: true
+  EnforcedStyle: empty_lines
+  SupportedStyles:
+    - empty_lines
+    - no_empty_lines
+Style/RegexpLiteral:
+  Description: Use %r for regular expressions matching more than `MaxSlashes` '/'
+    characters. Use %r only for regular expressions matching more than `MaxSlashes`
+    '/' character.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#percent-r
+  Enabled: false
+Metrics/BlockLength:
+  Max: 315
+  Enabled: true
+  Exclude:
+    - app/admin/**/*
+    - spec/**/*
+    - gems/pension_forecast/spec/**/*
+Rails/Output:
+  Exclude:
+    - "lib/tasks/**/*.rb"
+Rails/OutputSafety:
+  Exclude:
+    - "lib/active_admin/inputs/filters/*"
+Rails/DynamicFindBy:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+Rails/InverseOf:
+  Enabled: false
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+Rails/FilePath:
+  Enabled: false
+Style/FormatStringToken:
+  EnforcedStyle: template
+Style/MethodMissingSuper:
+  Enabled: false
+Style/MissingRespondToMissing:
+  Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
+Smart/UseCore:
+  Exclude:
+    - "lib/tasks/**/*.rake"
+    - 'lib/settings/platform/forms/config_source.rb'
+Smart/UseEntryPoint:
+  Exclude:
+    - "app/units/**/*.rb"
+    - "app/controllers/**/*.rb"
+    - "spec/**/*.rb"
+    - "lib/tasks/**/*.rake"
+    - "app/subscriptions/**/*.rb"
+    - "app/workers/**/*.rb"
+    - "app/admin/**/*.rb"
+    - "app/representers/**/*.rb"
+    - "app/jobs/**/*.rb"
+    - "app/adapters/**/*.rb"
+    - "config/initializers/active_admin.rb"
+    - "app/dependencies/**/*.rb"
+Smart/AttrAccessor:
+  Include:
+    - "app/units/**/*form.rb"
+    - "app/units/**/entry_point.rb"
+    - "app/units/**/*action.rb"
+Smart/UseErrorHelper:
+  Exclude:
+    - "spec/support/helpers.rb"
+Smart/AvoidInstanceVariables:
+  Include:
+    - "**/*validator.rb"
+    - "**/*subscription.rb"
+  Exclude:
+    - "app/adapters/file_notification_subscriber_adapter/sns/validator.rb"
+    - "app/validators/password_complexity_validator.rb"
+Smart/EntryPointIncluded:
+  Exclude:
+    - "spec/lib/settings/platform/forms/config_source_spec.rb"
+    - "app/validators/password_complexity_validator.rb"
+Smart/EntryPointInitializeAction:
+  Exclude:
+    - "spec/lib/settings/platform/forms/config_source_spec.rb"
+Smart/EntryPointInitializeArgs:
+  Exclude:
+    - "spec/lib/settings/platform/forms/config_source_spec.rb"
+Security/YAMLLoad:
+  Exclude:
+    - "spec/**/*.rb"
+RSpec/DescribeClass:
+  Exclude:
+    - "spec/requests/**/*.rb"
+    - "spec/tasks/**/*.rb"
+    - "spec/misc/platform/*.rb"
+Naming/MethodParameterName:
+  MinNameLength: 2
+  AllowedNames:
+    - "_"
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Max: 12
+RSpec/EmptyExampleGroup:
+  CustomIncludeMethods:
+    - it_raises_a_forbidden_error
+    - it_raises_a_not_authorized_error
+    - it_raises_a_not_found_error
+    - it_raises_a_validation_error
+    - it_raises_an_improper_request_options_error
+    - it_raises_error
+    - it_does_not_raise_an_error
+  Exclude:
+    - "spec/documentation/**/*"
+RSpec/SharedContext:
+  Exclude:
+    - "spec/support/shared_examples/**/*"
+RSpec/ScatteredSetup:
+  Exclude:
+    - "spec/documentation/**/*"
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/FilePath:
+  Enabled: false
+RSpec/ExpectInHook:
+  Enabled: false
+Metrics/AbcSize:
+  Exclude:
+    - "app/adapters/investment_adapter/fake/messages/sell_unit_price.rb"
+    - "app/adapters/investment_adapter/fake/messages/buy_monetary_price.rb"
+    - "app/adapters/investment_adapter/fake/messages/switch_price.rb"
+    - "app/adapters/investment_adapter/fake/messages/sell_monetary_price.rb"
+    - "app/adapters/investment_adapter/fake/messages/buy_unit_price.rb"
+    - "lib/tasks/**/*.rake"
+Metrics/ClassLength:
+  Exclude:
+    - "app/dependencies/**"
+Metrics/MethodLength:
+  Exclude:
+    - "lib/tasks/**/*.rake"
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: false
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
+Lint/RaiseException:
+  Enabled: false
+Lint/StructNewOverride:
+  Enabled: false
+Style/ExponentialNotation:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
+  Enabled: false
+Style/SlicingWithRange:
+  Enabled: false
