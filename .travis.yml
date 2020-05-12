@@ -3,7 +3,6 @@ env:
   - MOZ_HEADLESS=1
 services:
   - mysql
-sudo: true
 addons:
   firefox: latest
 dist: trusty
