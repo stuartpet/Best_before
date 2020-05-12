@@ -6,7 +6,6 @@ require:
   - rubocop-rails
   - rubocop-rspec
   - rubocop-thread_safety
-  - rubocop-smart
 AllCops:
   TargetRubyVersion: 2.6.0
   Exclude:
@@ -88,49 +87,7 @@ Style/MissingRespondToMissing:
   Enabled: false
 RSpec/NamedSubject:
   Enabled: false
-Smart/UseCore:
-  Exclude:
-    - "lib/tasks/**/*.rake"
-    - 'lib/settings/platform/forms/config_source.rb'
-Smart/UseEntryPoint:
-  Exclude:
-    - "app/units/**/*.rb"
-    - "app/controllers/**/*.rb"
-    - "spec/**/*.rb"
-    - "lib/tasks/**/*.rake"
-    - "app/subscriptions/**/*.rb"
-    - "app/workers/**/*.rb"
-    - "app/admin/**/*.rb"
-    - "app/representers/**/*.rb"
-    - "app/jobs/**/*.rb"
-    - "app/adapters/**/*.rb"
-    - "config/initializers/active_admin.rb"
-    - "app/dependencies/**/*.rb"
-Smart/AttrAccessor:
-  Include:
-    - "app/units/**/*form.rb"
-    - "app/units/**/entry_point.rb"
-    - "app/units/**/*action.rb"
-Smart/UseErrorHelper:
-  Exclude:
-    - "spec/support/helpers.rb"
-Smart/AvoidInstanceVariables:
-  Include:
-    - "**/*validator.rb"
-    - "**/*subscription.rb"
-  Exclude:
-    - "app/adapters/file_notification_subscriber_adapter/sns/validator.rb"
-    - "app/validators/password_complexity_validator.rb"
-Smart/EntryPointIncluded:
-  Exclude:
-    - "spec/lib/settings/platform/forms/config_source_spec.rb"
-    - "app/validators/password_complexity_validator.rb"
-Smart/EntryPointInitializeAction:
-  Exclude:
-    - "spec/lib/settings/platform/forms/config_source_spec.rb"
-Smart/EntryPointInitializeArgs:
-  Exclude:
-    - "spec/lib/settings/platform/forms/config_source_spec.rb"
+
 Security/YAMLLoad:
   Exclude:
     - "spec/**/*.rb"

@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/smartpension/rubocop-smart.git
-  revision: f82613e655923699cf82d76e25e320cd078bd02f
-  tag: v1.0.1
-  specs:
-    rubocop-smart (1.0.1)
-      rubocop
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -269,7 +261,6 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   rubocop-rspec
-  rubocop-smart!
   rubocop-thread_safety
   sass-rails (>= 6)
   selenium-webdriver

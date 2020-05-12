@@ -36,7 +36,6 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
-  gem 'rubocop-smart', git: 'https://github.com/smartpension/rubocop-smart.git', tag: 'v1.0.1'
   gem 'rubocop-thread_safety'
   gem 'simplecov'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
