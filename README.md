@@ -8,6 +8,7 @@ An app that will track a shopping list and let you know when you need to re-buy 
 
 ## Requirements
 
+
 build a shopping list that will track items and inform the user when they need to buy items
 
 ## Author
