@@ -1,0 +1,15 @@
+<h1>Shopping lists</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+  </tr>
+
+  <% @shopping_item.each do |shopping_item| %>
+    <tr>
+      <td><%= shopping_item.title %></td>
+      <td><%= link_to 'Show', shopping_item_path(shopping_item) %></td>
+    </tr>
+  <% end %>
+</table>

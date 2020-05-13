@@ -2,6 +2,10 @@
 
 class ShoppingItemsController < ApplicationController
 
+  def index
+    @shopping_item = ShoppingItem.all
+  end
+
   def show
     @shopping_item = ShoppingItem.find(params[:id])
   end
