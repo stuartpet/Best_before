@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :shopping_items
+  resources :shopping_lists
 
   root 'welcome#index'
+
+  get 'shopping_lists/new'
 end
