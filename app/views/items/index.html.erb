@@ -1,31 +1,38 @@
-<h2>Shopping List Items</h2>
+<div class="container">
+<h2 class="text-center">Shopping List Items</h2>
 
-  <thead>
+  <table class="table table-striped text-center">
+    <thead class="thead-dark">
+
   <tr>
-    <th>Item</th> |
-    <th>Frequency_of_purchase</th> |
-    <th>Last_purchased</th>
+    <th class="text-center">Item</th>
+    <th class="text-center">Frequency_of_purchase</th>
+    <th class="text-center">Last_purchased</th>
   </tr>
   </thead>
 
+    <tbody>
   <% @items.each do |item|%>
     <tr>
       <br>
-      <br>
-      <td><%= item.item %></td>
-      <td><%= item.frequency_of_purchase %></td>
-      <td><%= item.last_purchase %></td>
+      <td class="text-center"><%= item.item %></td>
+      <td class="text-center"><%= item.frequency_of_purchase %></td>
+      <td class="text-center"><%= item.last_purchase %></td>
       <td>
         <br>
-        <%= link_to 'Edit Item', edit_shopping_list_item_path(@shopping_lists, item) %>
-        <%= link_to 'Destroy Item', [@shopping_lists, item], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit_Item', edit_shopping_list_item_path(@shopping_lists, item), class: "text-primary" %> |
+        <%= link_to 'Destroy Item', [@shopping_lists, item], method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %>
       </td>
     </tr>
   <% end %>
+    </tbody>
+  </table>
 <br>
 <br>
 
-<%= link_to 'Create New Item', new_shopping_list_item_path(@shopping_lists) %>
+<%= link_to 'Create New Item', new_shopping_list_item_path(@shopping_lists), class: "btn btn-primary" %>
 <br>
 <br>
-<%= link_to 'Shopping Lists', shopping_lists_path(@shopping_lists) %>
+<%= link_to 'Shopping Lists', shopping_lists_path(@shopping_lists), class: "btn btn-primary" %>
+
+</div>
