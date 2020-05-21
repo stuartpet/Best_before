@@ -19,12 +19,16 @@
   <% end %>
 
     <form>
-      <div class="form-group">
+      <div class="form-inline">
         <%= f.label :item %>
         <%= f.text_field :item %>
 
         <%= f.label :frequency_of_purchase %>
-        <%= f.text_field :frequency_of_purchase %>
+        <select <%= f.text_field :frequency_of_purchase, class: "form-control", id: "frequency_of_purchase"%>
+        <option>Daily</option>
+        <option>Weekly</option>
+        <option>Monthly</option>
+        </select>
 
         <%= f.label :last_purchase %>
         <%= f.date_field :last_purchase %>

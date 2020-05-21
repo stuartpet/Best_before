@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center" xmlns="http://www.w3.org/1999/html">
 <h2 class="text-center">New Item</h2>
   <br>
   <br>
@@ -19,12 +19,16 @@
     </div>
   <% end %>
 <form>
-    <div class="form-group">
+    <div class="form-inline">
     <%= f.label :item %>
     <%= f.text_field :item %>
 
-    <%= f.label :frequency_of_purchase %>
-    <%= f.text_field :frequency_of_purchase %>
+       <%= f.label :frequency_of_purchase %>
+      <select <%= f.text_field :frequency_of_purchase, class: "form-control", id: "frequency_of_purchase" %>
+      <option>Daily</option>
+      <option>Weekly</option>
+      <option>Monthly</option>
+      </select>
 
     <%= f.label :last_purchase %>
     <%= f.date_field :last_purchase %>
