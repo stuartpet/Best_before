@@ -7,36 +7,35 @@ class ShoppingListsController < ApplicationController
   end
 
   def show
-    @shopping_lists = ShoppingLists.find(params[:id])
+    @shopping_lists = ShoppingLists.find(permitted_params[:id])
+    @shopping_lists = ShoppingLists.first
   end
 
-  def new; end
-
-  def edit
-    @shopping_lists = ShoppingLists.find(params[:id])
+  def new
+    @shopping_lists = ShoppingLists.new
   end
 
   def create
-    @shopping_lists = ShoppingLists.new(shopping_list_params)
+    @shopping_lists = ShoppingLists.new(permitted_params[:shopping_lists])
 
-    @shopping_lists.save
-    redirect_to @shopping_lists
-  end
-
-  def update
-    @shopping_lists = ShoppingLists.find(params[:id])
-
-    if @shopping_lists.update(shopping_list_params)
+    if @shopping_lists.save
       redirect_to @shopping_lists
     else
-      render edit
+      render 'new'
     end
+  end
+
+  def destroy
+    @shopping_lists = ShoppingLists.find(permitted_params[:id])
+    @shopping_lists.destroy
+
+    redirect_to shopping_lists_path
   end
 
   private
 
-  def shopping_list_params
-    params.require(:shopping_lists).permit(:name)
+  def permitted_params
+    params.permit!
   end
 
 end

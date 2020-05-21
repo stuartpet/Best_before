@@ -1,0 +1,37 @@
+<h2>New Item</h2>
+
+<%= form_with(model: [@shopping_lists, @items], local: true) do |f| %>
+
+  <% if @items.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@items.errors.count, "error") %>
+        prohibited this item from being saved:
+      </h2>
+      <ul>
+        <% @items.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :item %>
+    <%= f.text_field :item %>
+
+  <p>
+    <%= f.label :frequency_of_purchase %>
+    <%= f.text_field :frequency_of_purchase %>
+  </p>
+
+  <p>
+    <%= f.label :last_purchase %>
+    <%= f.date_field :last_purchase %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+    <%= link_to 'Back to items list', shopping_list_items_path(@shopping_lists) %>
+  </p>
+<% end %>

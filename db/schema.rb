@@ -12,15 +12,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_519_075_436) do
-  create_table 'shopping_list_items', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+ActiveRecord::Schema.define(version: 20_200_519_135_350) do
+  create_table 'items', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'item'
     t.string 'frequency_of_purchase'
     t.date 'last_purchase'
     t.bigint 'shopping_lists_id'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['shopping_lists_id'], name: 'index_shopping_list_items_on_shopping_lists_id'
+    t.index ['shopping_lists_id'], name: 'index_items_on_shopping_lists_id'
   end
 
   create_table 'shopping_lists', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
@@ -29,5 +29,5 @@ ActiveRecord::Schema.define(version: 20_200_519_075_436) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key 'shopping_list_items', 'shopping_lists', column: 'shopping_lists_id'
+  add_foreign_key 'items', 'shopping_lists', column: 'shopping_lists_id'
 end

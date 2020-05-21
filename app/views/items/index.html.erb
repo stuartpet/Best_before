@@ -1,0 +1,31 @@
+<h2>Shopping List Items</h2>
+
+  <thead>
+  <tr>
+    <th>Item</th> |
+    <th>Frequency_of_purchase</th> |
+    <th>Last_purchased</th>
+  </tr>
+  </thead>
+
+  <% @items.each do |item|%>
+    <tr>
+      <br>
+      <br>
+      <td><%= item.item %></td>
+      <td><%= item.frequency_of_purchase %></td>
+      <td><%= item.last_purchase %></td>
+      <td>
+        <br>
+        <%= link_to 'Edit Item', edit_shopping_list_item_path(@shopping_lists, item) %>
+        <%= link_to 'Destroy Item', [@shopping_lists, item], method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+<br>
+<br>
+
+<%= link_to 'Create New Item', new_shopping_list_item_path(@shopping_lists) %>
+<br>
+<br>
+<%= link_to 'Shopping Lists', shopping_lists_path(@shopping_lists) %>
