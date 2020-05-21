@@ -1,4 +1,6 @@
-<h1>New Shopping list</h1>
+<div class="container text-center">
+<h1 class="text-center">New Shopping list</h1>
+  <br>
 
 <%= form_with scope: :shopping_lists, url: shopping_lists_path, local: true do |f| %>
 
@@ -16,15 +18,17 @@
     </div>
   <% end %>
 
+    <form>
+      <div class="form-group">
+        <%= f.label :List_name %>
+        <%= f.text_field :name %>
+      </div>
+      <br>
 
   <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to 'Back to shopping lists', shopping_lists_path %>
   </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Back to shopping lists', shopping_lists_path %>
+  <% end %>
+  </form>
+  </div>

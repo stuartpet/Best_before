@@ -1,4 +1,6 @@
-<h2>Edit Item</h2>
+<div class="container text-center">
+<h2 class="text-center">Edit Item</h2>
+  <br>
 
 <%= form_with(model: @items, url: :shopping_list_item ,method: :put, local: true) do |f| %>
 
@@ -16,23 +18,24 @@
     </div>
   <% end %>
 
-    <%= f.label :item %>
-    <%= f.text_field :item %>
+    <form>
+      <div class="form-group">
+        <%= f.label :item %>
+        <%= f.text_field :item %>
 
-    <p>
-      <%= f.label :frequency_of_purchase %>
-      <%= f.text_field :frequency_of_purchase %>
-    </p>
+        <%= f.label :frequency_of_purchase %>
+        <%= f.text_field :frequency_of_purchase %>
 
-    <p>
-      <%= f.label :last_purchased %>
-      <%= f.date_field :last_purchase %>
-    </p>
-
-    <p>
-      <%= f.submit %>
+        <%= f.label :last_purchase %>
+        <%= f.date_field :last_purchase %>
+      </div>
       <br>
-      <br>
+
+    <p>
+      <%= f.submit class: "btn btn-primary" %>
       <%= link_to 'Back to items list', shopping_list_items_path(@shopping_lists) %>
     </p>
 <% end %>
+  </form>
+  </div>
+

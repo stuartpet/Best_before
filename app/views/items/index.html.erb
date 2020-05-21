@@ -20,6 +20,7 @@
       <td class="text-center"><%= item.last_purchase %></td>
       <td>
         <br>
+      <td class="text-center">
         <%= link_to 'Edit_Item', edit_shopping_list_item_path(@shopping_lists, item), class: "text-primary" %> |
         <%= link_to 'Destroy Item', [@shopping_lists, item], method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %>
       </td>

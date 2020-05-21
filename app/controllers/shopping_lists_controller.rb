@@ -19,7 +19,7 @@ class ShoppingListsController < ApplicationController
     @shopping_lists = ShoppingLists.new(permitted_params[:shopping_lists])
 
     if @shopping_lists.save
-      redirect_to @shopping_lists
+      redirect_to shopping_lists_path(@shopping_lists)
     else
       render 'new'
     end
