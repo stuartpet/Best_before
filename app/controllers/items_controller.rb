@@ -2,6 +2,7 @@
 
 class ItemsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :find_shopping_list
   before_action :set_item, only: %i[show edit update destroy]
 
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
   end
 
   def find_shopping_list
-    @shopping_lists = ShoppingLists.find(permitted_params[:shopping_list_id])
+    @shopping_lists = ShoppingList.find(permitted_params[:shopping_list_id])
   end
 
   def item_params

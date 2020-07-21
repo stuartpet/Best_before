@@ -2,7 +2,7 @@
 <h1 class="text-center">New Shopping list</h1>
   <br>
 
-<%= form_with scope: :shopping_lists, url: shopping_lists_path, local: true do |f| %>
+<%= form_with scope: :shopping_lists, url: shoppingLists_path, local: true do |f| %>
 
   <% if @shopping_lists.errors.any? %>
     <div id="error_explanation">
@@ -27,7 +27,7 @@
 
   <p>
     <%= f.submit class: "btn btn-primary" %>
-    <%= link_to 'Back to shopping lists', shopping_lists_path %>
+    <%= link_to 'Back to shopping lists', shoppingLists_path %>
   </p>
   <% end %>
   </form>
