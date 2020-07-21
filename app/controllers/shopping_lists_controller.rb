@@ -14,14 +14,16 @@ class ShoppingListsController < ApplicationController
   end
 
   def new
-    @shopping_lists = current_user.shopping_lists.new
+    @user = current_user
+    @shopping_lists = @user.shopping_lists.new
   end
 
   def create
-    @shopping_lists = ShoppingList.new(permitted_params[:shopping_lists])
+    @user = current_user
+    @shopping_lists = @user.shopping_lists.new(permitted_params[:shopping_lists])
 
     if @shopping_lists.save
-      redirect_to shoppingLists_path(@shopping_lists)
+      redirect_to shopping_lists_path(@shopping_lists)
     else
       render 'new'
     end

@@ -12,15 +12,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_720_205_722) do
+ActiveRecord::Schema.define(version: 20_200_721_090_047) do
   create_table 'items', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
     t.string 'item'
     t.string 'frequency_of_purchase'
     t.date 'last_purchase'
-    t.bigint 'shopping_lists_id'
+    t.bigint 'shopping_list_id'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['shopping_lists_id'], name: 'index_items_on_shopping_lists_id'
+    t.index ['shopping_list_id'], name: 'index_items_on_shopping_list_id'
   end
 
   create_table 'shopping_lists', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(version: 20_200_720_205_722) do
     t.datetime 'remember_created_at'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'shopping_list_id'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-  add_foreign_key 'items', 'shopping_lists', column: 'shopping_lists_id'
+  add_foreign_key 'items', 'shopping_lists'
 end
